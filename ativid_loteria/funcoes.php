@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*
 nDA => numero de apostas
 Qna => quantidadde de numeros apostados
@@ -11,31 +12,36 @@ function listaPorCod($cod){
 		case 1:
 			for ($i=6; $i <=15 ; $i++) { 
 				$lista[]=$i;
+				$_SESSION='Mega Sena';
 			}
 			break;
 		
 		case 2:
 			for ($i=5; $i <=15 ; $i++) { 
 				$lista[]=$i;
+				$_SESSION='Quina';
+
 			}
 			break;
 
 		case 3:
-			for ($i=0; $i <=20 ; $i++) { 
+			for ($i=0; $i <=50 ; $i++) { 
 				$lista[]=$i;
+				$_SESSION='Loto Facil';
 			}
 			break;
 
 		case 4:
 			for ($i=15; $i <=18 ; $i++) { 
 				$lista[]=$i;
+				$_SESSION='Loto Mania';
 			}
 			break;
 	}
+	$lista['tipo']=$_SESSION;
 	return $lista;
 }
-
-function buscaDezenas($cod,$quant){
+function listaDezenas($cod,$quant){
 	$sort=[];
 	switch ($cod) {
 
@@ -69,7 +75,7 @@ function buscaDezenas($cod,$quant){
 
 		case 3:
 
-				for ($i=1; $i <=50 ; $i++) { 
+				for ($i=1; $i <=100 ; $i++) { 
 			 	$nMania[]=$i;
 			 } 
 
@@ -102,6 +108,3 @@ function buscaDezenas($cod,$quant){
 
 	return $sort;
 }
-
-// print_r(buscaDezenas(3,9));
-

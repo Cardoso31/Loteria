@@ -1,7 +1,9 @@
 <?php
-include 'cabecalho.php';
 include 'funcoes.php';
+
+include 'cabecalho.php';
 $cod=$_GET['cod'];
+
 ?>
 
 <h1>Informe a quantidade de numeros a serem escolhidos</h1>
@@ -11,12 +13,9 @@ $cod=$_GET['cod'];
 <select name="apostas">
 
 
-
-
+<form method="post" action="listaDezenas.php?cod=$cod">
 
 <?php
-
-
 $tipo=listaPorCod($cod);
 
 foreach ($tipo as $key) {
@@ -28,11 +27,13 @@ foreach ($tipo as $key) {
 
 
 
-
+</form>
 
 </select>
 
 
-<input type="submit" value="Sotear" />
+<input type="submit" value="Sotear"/>
 
 </form>
+
+
